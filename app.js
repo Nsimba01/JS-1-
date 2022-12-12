@@ -3,37 +3,37 @@ const studentForm = document.getElementById("studentForm");
 const studentsContainer = document.querySelector(".students");
 const nameInput = studentForm["name"];
 const ageInput = studentForm["age"];
-const GroupInput = studentForm["Group_number"];
+const rollInput = studentForm["roll"];
 
 
 const students = JSON.parse(localStorage.getItem("students")) || [];
 
-const addStudent = (name, age, Group_number) => {
+const addStudent = (name, age, roll) => {
   students.push({
     name,
     age,
-    Group_number,
+    roll,
   });
 
   localStorage.setItem("students", JSON.stringify(students));
 
-  return { name, age, Group_number };
+  return { name, age, roll };
 };
 
-const createStudentElement = ({ name, age, Group_number }) => {
+const createStudentElement = ({ name, age, roll }) => {
   // Create elements
   const studentDiv = document.createElement("div");
   const studentName = document.createElement("h2");
   const studentAge = document.createElement("p");
-  const studentGroup = document.createElement("p");
+  const studentRoll = document.createElement("p");
 
   // Fill the content
   studentName.innerText = "Student name: " + name;
   studentAge.innerText = "Student age: " + age;
-  studentGroup.innerText = "Student Group: " + roll;
+  studentRoll.innerText = "Student roll: " + roll;
 
   // Add to the DOM
-  studentDiv.append(studentName, studentAge, studentGroup);
+  studentDiv.append(studentName, studentAge, studentRoll);
   studentsContainer.appendChild(studentDiv);
 
   studentsContainer.style.display = students.length === 0 ? "none" : "flex";
@@ -49,12 +49,12 @@ studentForm.onsubmit = e => {
   const newStudent = addStudent(
     nameInput.value,
     ageInput.value,
-    GroupInput.value
+    rollInput.value
   );
 
   createStudentElement(newStudent);
 
   nameInput.value = "";
   ageInput.value = "";
-  GroupInput.value = "";
+  rollInput.value = "";
 };
