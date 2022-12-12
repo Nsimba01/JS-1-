@@ -2,7 +2,7 @@ Bonjour,
 
 c'est un programme qui affiche un formulaire
 avec trois champs à remplir : 
-Nom de l'étudiant, son âge et son numéro de groupe.
+Nom de l'étudiant, son âge et nombre de rouleaux.
 
 L'utilisateur saisit les données et envoie le formulaire.
 
